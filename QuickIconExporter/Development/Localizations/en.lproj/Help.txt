@@ -1,0 +1,73 @@
+A menu bar app that exports the icons of apps and files as PNG images with transparency. It does not appear in the Dock.
+
+## How to Use
+### Export from the Main Window
+1. Drop apps or files onto the main window, or click Choose Files… (⌘O). You can export multiple files at once.
+2. After exporting, click Show in Finder to see the saved file.
+
+### Other Ways to Export
+- If you drop files onto the app’s icon in Finder or use Open With, the icons are exported without showing the main window.
+- Select files in Finder or Path Finder and press ⌃⌥⌘I to export them without showing the main window.
+- You can also select files in Finder and Control-click → Services → アイコンを書き出す（QuickIconExporter）.
+- You can also choose Choose Files… from the menu bar icon.
+
+## Where Files Are Saved
+### Destination
+- Icons are saved at the largest pixel size available; the size depends on the images the original app or file contains.
+- For an .icns file, the largest image stored in the file is exported instead of the file’s icon in Finder. If the .icns cannot be read, its file icon is exported.
+- The default destination is the Desktop. Change it with Change… at the bottom of the main window or in the Export tab of Settings.
+
+### Filenames
+- By default, files are named “icon-filename.png”: spaces are replaced with hyphens and unnecessary symbols are removed.
+- The name comes from the name Finder shows. For example, “Adobe Illustrator.app”, shown as “Adobe Illustrator 2021”, becomes “icon-Adobe-Illustrator-2021.png”. macOS apps use their localized names. To use the actual file name, turn off “Use the Name Shown in Finder” in Settings.
+- If a file with the same name exists, it is not overwritten; a number such as “-2” or “-3” is added instead.
+
+## Settings
+Open Settings with the Settings button in the main window (⌘,). Changes take effect immediately, including for files dropped on the app icon and exports from Services.
+- **Startup & Background**: Open at login, Hide main window at startup, Hide from Dock and App Switcher, Show in menu bar
+- **Export**: change the Destination (Choose Folder…, Reset to Desktop)
+- **Filename**: the “icon” Text (leave it empty to use only the filename), Position ({icon}-filename.png or filename-{icon}.png), Separator (hyphen or underscore), Spaces, Use the Name Shown in Finder (on by default), and Remove unnecessary symbols. Check the result in Preview, and click Restore Filename Defaults to go back to the defaults.
+- **On Completion**: Show in Finder after export (on by default), Hide app after export (off by default), Show notification (off by default), Play a sound (off by default)
+- **Shortcuts**: turn on or off and change the shortcut that exports the selected files (⌃⌥⌘I by default)
+
+In the Sharing tab you can share the file naming and what happens after export. **Export…** saves QuickIconExporter-Settings.plist, and **Import…** loads it on another Mac (after you confirm the replacement). Under Settings Sync, choose a folder in iCloud Drive, Dropbox or elsewhere, and Macs that use the same folder keep these settings in step automatically. The save location, login launch and the menu bar are set on each Mac.
+
+## Keyboard Shortcuts
+- **⌘O**: Choose Files
+- **⌘0**: Open Main Window
+- **⌘,**: Settings
+- **⌘W**: Close Window
+- **⌘Q**: Quit QuickIconExporter
+
+※ The shortcut that exports the selected files is ⌃⌥⌘I by default; change it in the Shortcuts tab of Settings. You can also assign a keyboard shortcut to the service in System Settings → Keyboard → Keyboard Shortcuts → Services.
+
+## Permissions
+- QuickIconExporter does not need Accessibility permission.
+- The first time you use the shortcut that exports the selected files, macOS asks to allow control of Finder or Path Finder (Automation).
+- When Show notification is on, macOS asks for notification permission the first time you export.
+- If the destination can’t be written to, choose a folder you can write to.
+
+## Opening and Quitting
+- Closing the window does not quit the app; it stays in the menu bar. Choose Open Main Window from the menu bar icon to show the main window again.
+- When opened at login, or when Hide main window at startup is on, the app starts without opening the main window.
+- When Hide from Dock and App Switcher is on, the app stays out of the Dock and the ⌘Tab switcher even while the main window is open (off by default). Show it from the menu bar icon or by opening it again in Finder.
+- Turning off Show in menu bar does not quit the app. Open QuickIconExporter again to show the main window.
+- To quit, choose Quit QuickIconExporter from the menu bar icon.
+- Check for new versions with Check for Updates… in the app menu. Until update delivery is set up, it shows “Updates are not configured” and makes no network connection.
+
+## Troubleshooting
+- If icons can’t be exported, make sure the destination folder exists and can be written to. Click Reset to Desktop in the Export tab of Settings to return to the default destination.
+- The icon resolution depends on the images the original app or file contains.
+- If the item doesn’t appear in the Services menu, make sure it is enabled in System Settings → Keyboard → Keyboard Shortcuts → Services.
+- If notifications don’t appear, make sure QuickIconExporter is allowed in Notifications in System Settings.
+
+## Help and the note Article
+- To open this help, choose Help > QuickIconExporter Help from the menu bar icon. While a window is shown, you can also choose QuickIconExporter Help (⌘?) from the Help menu.
+- Choose Open the note Article in the same Help submenu to read the article on note in your browser.
+
+## Removing the App
+1. Turn off Open at login.
+2. Choose Quit QuickIconExporter from the menu bar icon.
+3. Move QuickIconExporter to the Trash.
+
+- The App Store edition asks you to choose an export folder in the standard system dialog before the first export. Cancel exports nothing. The folder is remembered across launches; choose it again if access cannot be restored. PNG files are never saved inside an app container.
